@@ -1,17 +1,17 @@
 #include "Arduino.h"
-#include "Motion.h"
+#include "MotionSensor.h"
 
 // Libraries for the Adafruit LSM303
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_LSM303_U.h>
 
-Motion::Motion()
+MotionSensor::MotionSensor()
 {
   _accel = Adafruit_LSM303_Accel_Unified(54321);
 }
 
-bool Motion::init()
+bool MotionSensor::init()
 {
   /* Initialise the sensor */
   if(!_accel.begin())
@@ -24,13 +24,13 @@ bool Motion::init()
   }
 }
 
-bool Motion::moving()
+bool MotionSensor::moving()
 {
-  /* Get a new sensor event */ 
+  /* Get a new sensor event */
   sensors_event_t event;
 
   // Read and return the event
-  _accel.getEvent(&event);  
+  _accel.getEvent(&event);
   if (abs(event.acceleration.x) + abs(event.acceleration.y) + abs(event.acceleration.z) > 15) {
     return true;
   } else {
@@ -38,42 +38,42 @@ bool Motion::moving()
   }
 }
 
-float Motion::intensity()
+float MotionSensor::intensity()
 {
-  /* Get a new sensor event */ 
+  /* Get a new sensor event */
   sensors_event_t event;
 
   // Read and return the event
-  _accel.getEvent(&event);  
+  _accel.getEvent(&event);
   return(abs(event.acceleration.x) + abs(event.acceleration.y) + abs(event.acceleration.z));
 }
 
-float Motion::xIntensity()
+float MotionSensor::xIntensity()
 {
-  /* Get a new sensor event */ 
+  /* Get a new sensor event */
   sensors_event_t event;
 
   // Read and return the event
-  _accel.getEvent(&event);  
+  _accel.getEvent(&event);
   return(event.acceleration.x);
 }
 
-float Motion::yIntensity()
+float MotionSensor::yIntensity()
 {
-  /* Get a new sensor event */ 
+  /* Get a new sensor event */
   sensors_event_t event;
 
   // Read and return the event
-  _accel.getEvent(&event);  
+  _accel.getEvent(&event);
   return(event.acceleration.y);
 }
 
-float Motion::zIntensity()
+float MotionSensor::zIntensity()
 {
-  /* Get a new sensor event */ 
+  /* Get a new sensor event */
   sensors_event_t event;
 
   // Read and return the event
-  _accel.getEvent(&event);  
+  _accel.getEvent(&event);
   return(event.acceleration.z);
 }

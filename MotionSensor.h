@@ -1,11 +1,11 @@
-/* 
-Motion.h - A wrapper library for detecting motion using the 
+/*
+Motion.h - A wrapper library for detecting motion using the
 Adafruit LSM303 accelerometer. Designed for middle schoolers.
 Created by Richard Davis in the Fall of 2015.
 */
 
-#ifndef Motion_h
-#define Motion_h
+#ifndef MotionSensor_h
+#define MotionSensor_h
 
 #include "Arduino.h"
 #include <Wire.h>
@@ -14,20 +14,20 @@ Created by Richard Davis in the Fall of 2015.
 #include <Adafruit_Sensor.h>
 #include <Adafruit_LSM303_U.h>
 
-class Motion
+class MotionSensor
 {
  public:
 
-  Motion();
+  MotionSensor();
   bool init();
 
   bool moving();
   float intensity();
-  
+
   float xIntensity();
   float yIntensity();
   float zIntensity();
-  
+
  private:
 
   Adafruit_LSM303_Accel_Unified _accel;

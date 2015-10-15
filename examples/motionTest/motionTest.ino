@@ -1,10 +1,10 @@
-#include <Motion.h>
+#include <MotionSensor.h>
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_LSM303_U.h>
 
 bool success;
-Motion motion;
+MotionSensor motion;
 
 void setup() {
   // put your setup code here, to run once:
