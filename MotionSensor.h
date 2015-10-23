@@ -22,6 +22,7 @@ class MotionSensor
   bool init();
 
   bool moving();
+  void setThreshold(int t);
   float intensity();
 
   float xIntensity();
@@ -31,6 +32,7 @@ class MotionSensor
  private:
 
   Adafruit_LSM303_Accel_Unified _accel;
+  int _threshold;
 };
 
 #endif

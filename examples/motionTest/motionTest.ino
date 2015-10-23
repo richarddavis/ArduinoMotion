@@ -14,6 +14,7 @@ void setup() {
     delay(1000);
     Serial.println("Accelerometer is not connected.");
   }
+  motion.setThreshold(20);
 }
 
 void loop() {

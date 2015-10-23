@@ -31,11 +31,16 @@ bool MotionSensor::moving()
 
   // Read and return the event
   _accel.getEvent(&event);
-  if (abs(event.acceleration.x) + abs(event.acceleration.y) + abs(event.acceleration.z) > 15) {
+  if (abs(event.acceleration.x) + abs(event.acceleration.y) + abs(event.acceleration.z) > _threshold) {
     return true;
   } else {
     return false;
   }
+}
+
+void MotionSensor::setThreshold(int t)
+{
+  _threshold = t;
 }
 
 float MotionSensor::intensity()
